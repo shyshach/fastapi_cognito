@@ -9,8 +9,8 @@ load_dotenv()  # Automatically load environment variables from a '.env' file.
 
 jwks = JWKS.parse_obj(
     requests.get(
-        f"https://cognito-idp.us-east-1.amazonaws.com/"
-        f"us-east-1_3BPxwDb6P/.well-known/jwks.json"
+        f"https://cognito-idp.{os.environ.get('COGNITO_REGION')}.amazonaws.com/"
+        f"{ os.environ.get('COGNITO_POOL_ID') }/.well-known/jwks.json"
     ).json()
 )
 

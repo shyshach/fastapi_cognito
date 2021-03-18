@@ -45,7 +45,7 @@ class UserCredentials(BaseModel):
     session_token: str
 
 
-@app.on_event("startup")
+#@app.on_event("startup")
 async def startup_event():
     subprocess.check_call(['truffle', 'migrate', ""], cwd=truffle_path)
     web3.eth.defaultAccount = web3.eth.accounts[0]
